@@ -6,15 +6,17 @@
     <title>Document</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body style="margin: 0; padding: 0; background: linear-gradient(#FF6200, #FD7F2C, #FDA766); background-attachment: fixed;">
     <div class="Body">
         <div class="App-Name">
             teach-era
         </div>
-        <div class="Start">
+        <div class="Start" id="start-btn" style="cursor: pointer; z-index: 10;">
             Start Your AI Generated Quiz
         </div>
     </div>
+
+    <div id="quiz-container" class="Quiz-Container"></div>
 
     <script src="app.js"></script>
 </body>

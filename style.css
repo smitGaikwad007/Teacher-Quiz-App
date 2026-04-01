@@ -9,13 +9,12 @@
 }
 
 
-Body {
+.Body {
     position: relative;
     display: flex;
     flex-direction: column;
     height: 100vh;
     width: 100vw;
-    background: linear-gradient(#FF6200, #FD7F2C, #FDA766);
     box-sizing: border-box;
     margin: 0%;
     padding: 0%;
@@ -25,29 +24,105 @@ Body {
 
 .App-Name {
     height: auto;
-    width: 800px;
-    /* background-color: rgba(213, 208, 208, 0.2); */
-    font-size: 150px;
+    width: 100%;
+    max-width: 800px;
+    font-size: clamp(60px, 12vw, 150px);
     text-align: center;
     color: white;
-    /* border-radius: 40px; */
     font-family: 'MyFont1', sans-serif;
+    padding: 0 10px;
+    box-sizing: border-box;
+    line-height: 1.2;
 }
 
 .Start {
-    position: absolute;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: 50px;
-    margin-left: 75px;
-    width: 650px;
-    font-size: 25px;
+    height: auto;
+    min-height: 60px;
+    margin-top: 30px;
+    width: 90%;
+    max-width: 650px;
+    font-size: clamp(18px, 4vw, 25px);
+    padding: 15px 20px;
+    box-sizing: border-box;
     text-align: center;
     color: white;
     font-family: 'MyFont2', sans-serif;
     backdrop-filter: blur(10px);
     background: rgba(255, 255, 255, 0.1); /* IMPORTANT */
     border-radius: 20px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.Start:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+}
+
+.Quiz-Container {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 50px 0;
+    min-height: 100vh;
+}
+
+.Question-Card {
+    width: 90%;
+    max-width: 800px;
+    margin: 15px 0;
+    padding: clamp(20px, 5vw, 30px);
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-radius: 20px;
+    color: white;
+    font-family: 'MyFont2', sans-serif;
+    text-align: center;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+}
+
+.Question-Card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.Question-Text {
+    font-size: clamp(20px, 5vw, 24px);
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.Options-Container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+}
+
+.Option {
+    width: 100%;
+    max-width: 600px;
+    padding: clamp(12px, 3vw, 15px);
+    box-sizing: border-box;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+    font-size: clamp(15px, 4vw, 18px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.Option:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateY(-2px);
 }
