@@ -47,3 +47,5 @@ Backend (Basic Logic):
 	3.	Student logs in and attempts the quiz
 	4.	Answers are validated instantly
 	5.	Score is calculated and displayed
+
+**API - API from trivia DB, fetches data of 10 questions for student displayed in my App** 
