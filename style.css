@@ -1,3 +1,18 @@
+:root {
+    --bg-gradient: linear-gradient(#FF6200, #FD7F2C, #FDA766);
+    --card-bg: rgba(255, 255, 255, 0.15);
+    --text-color: white;
+    --accent-color: #ffda77;
+    --blur: 15px;
+}
+
+body.dark-mode {
+    --bg-gradient: linear-gradient(#1a1a1a, #2d2d2d, #3d3d3d);
+    --card-bg: rgba(0, 0, 0, 0.3);
+    --text-color: #e0e0e0;
+    --accent-color: #4a90e2;
+}
+
 @font-face {
     font-family: "MyFont1";
     src: url("./Fonts/PlaywriteTZ-VariableFont_wght.ttf") format("truetype");
@@ -8,6 +23,33 @@
     src: url("./Fonts/OverpassMono-VariableFont_wght.ttf") format("truetype");
 }
 
+body {
+    margin: 0;
+    padding: 0;
+    background: var(--bg-gradient);
+    background-attachment: fixed;
+    transition: background 0.5s ease;
+    min-height: 100vh;
+}
+
+.Theme-Toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    background: var(--card-bg);
+    backdrop-filter: blur(var(--blur));
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 24px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.Theme-Toggle:hover {
+    transform: scale(1.1) rotate(15deg);
+}
 
 .Body {
     position: relative;
@@ -16,22 +58,16 @@
     height: 100vh;
     width: 100vw;
     box-sizing: border-box;
-    margin: 0%;
-    padding: 0%;
     justify-content: center;
     align-items: center;
 }
 
 .App-Name {
-    height: auto;
-    width: 100%;
-    max-width: 800px;
     font-size: clamp(60px, 12vw, 150px);
     text-align: center;
-    color: white;
+    color: var(--text-color);
     font-family: 'MyFont1', sans-serif;
     padding: 0 10px;
-    box-sizing: border-box;
     line-height: 1.2;
 }
 
@@ -40,21 +76,19 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    height: auto;
-    min-height: 60px;
     margin-top: 30px;
     width: 90%;
     max-width: 650px;
     font-size: clamp(18px, 4vw, 25px);
     padding: 15px 20px;
-    box-sizing: border-box;
     text-align: center;
-    color: white;
+    color: var(--text-color);
     font-family: 'MyFont2', sans-serif;
     backdrop-filter: blur(10px);
-    background: rgba(255, 255, 255, 0.1); /* IMPORTANT */
+    background: rgba(255, 255, 255, 0.1);
     border-radius: 20px;
     transition: background 0.3s, transform 0.2s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .Start:hover {
@@ -71,24 +105,78 @@
     min-height: 100vh;
 }
 
+.Controls {
+    width: 90%;
+    max-width: 800px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background: var(--card-bg);
+    backdrop-filter: blur(var(--blur));
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    justify-content: center;
+}
+
+.Search-Bar {
+    flex: 1;
+    min-width: 250px;
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    font-family: 'MyFont2', sans-serif;
+    outline: none;
+}
+
+.Filter-Select {
+    padding: 12px 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-color);
+    font-family: 'MyFont2', sans-serif;
+    cursor: pointer;
+    outline: none;
+}
+
+.Filter-Select option {
+    background: #FF6200;
+    color: white;
+}
+
+body.dark-mode .Filter-Select option {
+    background: #2d2d2d;
+}
+
+.Questions-List {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .Question-Card {
     width: 90%;
     max-width: 800px;
     margin: 15px 0;
     padding: clamp(20px, 5vw, 30px);
     box-sizing: border-box;
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
+    background: var(--card-bg);
+    backdrop-filter: blur(var(--blur));
     border-radius: 20px;
-    color: white;
+    color: var(--text-color);
     font-family: 'MyFont2', sans-serif;
     text-align: center;
     box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.18);
     opacity: 0;
     transform: translateY(20px);
-    transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out, background 0.5s ease;
+    position: relative;
 }
 
 .Question-Card.visible {
@@ -96,10 +184,39 @@
     transform: translateY(0);
 }
 
+.Favorite-Btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    font-size: 24px;
+    transition: transform 0.2s;
+    user-select: none;
+}
+
+.Favorite-Btn:hover {
+    transform: scale(1.2);
+}
+
+.Favorite-Btn.active {
+    filter: drop-shadow(0 0 5px var(--accent-color));
+}
+
 .Question-Text {
     font-size: clamp(20px, 5vw, 24px);
-    margin-bottom: 25px;
+    margin: 20px 0 25px 0;
     font-weight: bold;
+}
+
+.Difficulty-Badge {
+    display: inline-block;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    background: rgba(0,0,0,0.2);
+    margin-bottom: 10px;
 }
 
 .Options-Container {
@@ -126,3 +243,4 @@
     background: rgba(255, 255, 255, 0.25);
     transform: translateY(-2px);
 }
+

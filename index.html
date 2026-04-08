@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body style="margin: 0; padding: 0; background: linear-gradient(#FF6200, #FD7F2C, #FDA766); background-attachment: fixed;">
+    <div class="Theme-Toggle" id="theme-toggle">🌙</div>
+
     <div class="Body">
         <div class="App-Name">
             teach-era
@@ -16,7 +18,25 @@
         </div>
     </div>
 
-    <div id="quiz-container" class="Quiz-Container"></div>
+    <div id="quiz-container" class="Quiz-Container">
+        <div class="Controls" id="controls" style="display: none;">
+            <input type="text" id="search-input" placeholder="Search questions..." class="Search-Bar">
+            <select id="filter-difficulty" class="Filter-Select">
+                <option value="all">All Difficulties</option>
+                <option value="easy">Easy</option>
+                <option value="medium">Medium</option>
+                <option value="hard">Hard</option>
+            </select>
+            <select id="sort-order" class="Filter-Select">
+                <option value="default">Default Order</option>
+                <option value="alpha-asc">A to Z</option>
+                <option value="alpha-desc">Z to A</option>
+                <option value="length">Length</option>
+            </select>
+        </div>
+        <div id="questions-list" class="Questions-List"></div>
+    </div>
+
 
     <script src="app.js"></script>
 </body>
