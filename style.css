@@ -244,3 +244,151 @@ body.dark-mode .Filter-Select option {
     transform: translateY(-2px);
 }
 
+.Option.correct {
+    background: rgba(76, 175, 80, 0.4) !important;
+    border-color: #4caf50 !important;
+    color: white !important;
+}
+
+.Option.incorrect {
+    background: rgba(244, 67, 54, 0.4) !important;
+    border-color: #f44336 !important;
+    color: white !important;
+}
+
+.Option.disabled {
+    pointer-events: none;
+    opacity: 0.8;
+}
+
+/* Stats Bar */
+.Stats-Bar {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: flex;
+    gap: 20px;
+    background: var(--card-bg);
+    backdrop-filter: blur(var(--blur));
+    padding: 10px 25px;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.Stat-Item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-color);
+    font-family: 'MyFont2', sans-serif;
+    font-weight: bold;
+}
+
+/* Results Section */
+.Results-Section {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    backdrop-filter: blur(10px);
+    z-index: 2000;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    box-sizing: border-box;
+    overflow-y: auto;
+}
+
+.Results-Card {
+    background: var(--card-bg);
+    padding: 40px;
+    border-radius: 30px;
+    max-width: 800px;
+    width: 95%;
+    color: var(--text-color);
+    font-family: 'MyFont2', sans-serif;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+
+.Results-Card h2 {
+    font-size: 40px;
+    margin-bottom: 10px;
+    font-family: 'MyFont1', sans-serif;
+}
+
+.Final-Score {
+    font-size: 32px;
+    margin: 20px 0;
+    color: var(--accent-color);
+}
+
+.Solutions-Container {
+    text-align: left;
+    margin-top: 30px;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.Solutions-Container h3 {
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.Wrong-Question-Item {
+    background: rgba(0, 0, 0, 0.2);
+    padding: 15px;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+
+.Wrong-Q-Text {
+    font-weight: bold;
+    margin-bottom: 8px;
+}
+
+.Correct-Ans {
+    color: #4caf50;
+    font-size: 0.9em;
+}
+
+.Restart-Btn {
+    margin-top: 30px;
+    padding: 15px 40px;
+    border-radius: 30px;
+    border: none;
+    background: var(--accent-color);
+    color: #333;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s, background 0.2s;
+}
+
+.Restart-Btn:hover {
+    transform: scale(1.05);
+    background: #ffcc4d;
+}
+
+/* Scrollbar for solutions */
+.Solutions-Container::-webkit-scrollbar {
+    width: 6px;
+}
+
+.Solutions-Container::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.Solutions-Container::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 3px;
+}
+

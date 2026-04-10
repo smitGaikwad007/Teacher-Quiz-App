@@ -9,6 +9,17 @@
 <body style="margin: 0; padding: 0; background: linear-gradient(#FF6200, #FD7F2C, #FDA766); background-attachment: fixed;">
     <div class="Theme-Toggle" id="theme-toggle">🌙</div>
 
+    <div id="stats-bar" class="Stats-Bar" style="display: none;">
+        <div class="Stat-Item">
+            <span class="Stat-Label">⏱️ Timer:</span>
+            <span id="timer-display" class="Stat-Value">05:00</span>
+        </div>
+        <div class="Stat-Item">
+            <span class="Stat-Label">⭐ Score:</span>
+            <span id="score-display" class="Stat-Value">0</span>
+        </div>
+    </div>
+
     <div class="Body">
         <div class="App-Name">
             teach-era
@@ -35,6 +46,20 @@
             </select>
         </div>
         <div id="questions-list" class="Questions-List"></div>
+    </div>
+
+    <div id="results-section" class="Results-Section" style="display: none;">
+        <div class="Results-Card">
+            <h2>Quiz Results</h2>
+            <div class="Final-Score">
+                Score: <span id="final-score-val">0</span>
+            </div>
+            <div id="solutions-container" class="Solutions-Container">
+                <h3>Wrong Answers Review</h3>
+                <div id="wrong-answers-list"></div>
+            </div>
+            <button id="restart-btn" class="Restart-Btn">Try Again</button>
+        </div>
     </div>
 
 
